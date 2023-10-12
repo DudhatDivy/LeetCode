@@ -1,0 +1,33 @@
+
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+    int n = nums.size() - 2;
+    while (n >= 0 && nums[n] >= nums[n + 1]) {
+        n -= 1;
+    }
+    
+    if (n >= 0) {
+        int j = nums.size() - 1;
+        while (nums[j] <= nums[n]) {
+            j -= 1;
+        }
+        int temp;
+        temp=nums[n];
+        nums[n]=nums[j];
+        nums[j]=temp;
+    }
+    
+    int left = (n + 1), right = (nums.size() - 1);
+    while (left < right) {
+        int temp1;
+        temp1=nums[left];
+        nums[left]=nums[right];
+        nums[right]=temp1;
+        left += 1;
+        right -= 1;
+    }
+}
+
+
+};
