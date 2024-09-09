@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int fib(int n) {
+         const int first=0;
+    const int second=1;
+    vector<int> ans;
+    if(n==0){
+        return first;
+    }
+    else if (n==1){
+        return second;
+    }
+    else{
+        int temp1=1;
+        int temp0=0;
+       for(int i=1;i<=n-1;i++){
+            int temp=temp0+temp1;
+            temp0=temp1;
+            temp1=temp;
+       }
+       return temp1;
+    }
+    
+    }
+};
